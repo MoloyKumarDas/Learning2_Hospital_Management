@@ -11,4 +11,6 @@ public interface PatientRepository extends JpaRepository<Patient,Long> {
 
     List<Patient> findByBirthDateOrEmail(LocalDate birthDate,String email);
 
+    List<Patient>findByBirthDateBetween(LocalDate startDate,LocalDate endDate);
+    List<Patient>findByNameContaining(String query);
 }

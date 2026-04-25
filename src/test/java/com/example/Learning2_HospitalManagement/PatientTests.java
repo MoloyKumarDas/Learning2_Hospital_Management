@@ -38,7 +38,10 @@ public class PatientTests {
 
         //Patient patient=patientRepository.findByName("Diya Patel");
 
-        List<Patient>patientList=patientRepository.findByBirthDateOrEmail(LocalDate.of(1988,5,10),"diyapatel@example.com");
+        //List<Patient>patientList=patientRepository.findByBirthDateOrEmail(LocalDate.of(1988,5,10),"diyapatel@example.com");
+
+        //List<Patient>patientList=patientRepository.findByBirthDateBetween(LocalDate.of(1992,01,01),LocalDate.of(1995,12,30));
+        List<Patient>patientList=patientRepository.findByNameContaining("Di");
 
         for(Patient patient:patientList) {
             System.out.println(patient);
