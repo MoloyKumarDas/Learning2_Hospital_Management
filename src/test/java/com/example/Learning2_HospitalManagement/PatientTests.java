@@ -3,6 +3,8 @@ package com.example.Learning2_HospitalManagement;
 import com.example.Learning2_HospitalManagement.entity.Patient;
 import com.example.Learning2_HospitalManagement.repository.PatientRepository;
 import com.example.Learning2_HospitalManagement.service.PatientService;
+import jakarta.persistence.EntityNotFoundException;
+import org.hibernate.action.internal.EntityActionVetoException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +31,12 @@ public class PatientTests {
 
     @Test
     public void testTransactionMethods() {
-        Patient patient = patientService.getPatientById(1L);
+       // Patient patient = patientService.getPatientById(1L);
+
+       //Patient patient=patientRepository.findById(1L).orElseThrow(()->new EntityNotFoundException("Patient not "+ "found with id: 1"));
+
+        Patient patient=patientRepository.findByName("Diya Patel");
+
 
         System.out.println(patient);
     }
