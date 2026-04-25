@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootTest
@@ -35,9 +36,12 @@ public class PatientTests {
 
        //Patient patient=patientRepository.findById(1L).orElseThrow(()->new EntityNotFoundException("Patient not "+ "found with id: 1"));
 
-        Patient patient=patientRepository.findByName("Diya Patel");
+        //Patient patient=patientRepository.findByName("Diya Patel");
 
+        List<Patient>patientList=patientRepository.findByBirthDateOrEmail(LocalDate.of(1988,5,10),"diyapatel@example.com");
 
-        System.out.println(patient);
+        for(Patient patient:patientList) {
+            System.out.println(patient);
+        }
     }
 }

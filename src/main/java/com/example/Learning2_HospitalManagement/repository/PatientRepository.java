@@ -9,5 +9,6 @@ import java.util.List;
 public interface PatientRepository extends JpaRepository<Patient,Long> {
     Patient findByName(String name);
 
+    List<Patient> findByBirthDateOrEmail(LocalDate birthDate,String email);
 
 }
