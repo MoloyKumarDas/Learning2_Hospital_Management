@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @ToString
@@ -15,7 +17,7 @@ import java.time.LocalDate;
 @Table(                              // update table data   // it doesn't update -> it creates another table
         name = "patient_tbl",
         uniqueConstraints = {
-                @UniqueConstraint(name = "unique_patient_email",columnNames = {"email"}),
+               // @UniqueConstraint(name = "unique_patient_email",columnNames = {"email"}),
                 @UniqueConstraint(name = "unique_patient_name_birthday",columnNames = {"name","birthDate"})
         },
         indexes = {
@@ -28,11 +30,19 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name ="patient_name",nullable = false,length = 40)
     private String name;
 
     @ToString.Exclude
     private LocalDate birthDate;
 
+    @Column(unique = true,nullable = false)
     private String email;
+
     private String gender;
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createAt;
 }
