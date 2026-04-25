@@ -1,5 +1,6 @@
 package com.example.Learning2_HospitalManagement.entity;
 
+import com.example.Learning2_HospitalManagement.entity.type.BloodGroupType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -46,5 +47,6 @@ public class Patient {
     @Column(updatable = false)
     private LocalDateTime createAt;
 
-    private String bloodGroup;
+    @Enumerated(EnumType.STRING)
+    private BloodGroupType bloodGroup;
 }
