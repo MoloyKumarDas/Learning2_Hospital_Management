@@ -13,7 +13,7 @@ public class PatientService {
 
     private final PatientRepository patientRepository;
 
-    //private final EntityManager entityManager;          // don't need to use
+    //private final EntityManager entityManager;          // don't need to use  // important term
 
     @Transactional                  // rollback if not execute completely      // if error->rollback
     public Patient getPatientById(Long id){
