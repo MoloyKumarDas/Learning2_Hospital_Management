@@ -50,16 +50,19 @@ public class PatientTests {
 
         //List<Patient>patientList=patientRepository.findByBornAfterDate(LocalDate.of(1990,5,10));
 
-        List<Patient>patientList=patientRepository.findAllPatients();
+//        List<Patient>patientList=patientRepository.findAllPatients();
+//        for(Patient patient:patientList) {
+//            System.out.println(patient);
+//        }
+//
+//        List<Object[]> bloodGroupList = patientRepository.countEachBloodGroupType();
+//        for (Object[] objects : bloodGroupList) {
+//            System.out.println(objects[0] + " " + objects[1]);
+//        }
 
-        for(Patient patient:patientList) {
-            System.out.println(patient);
-        }
+        int rowsUpdated = patientRepository.updateNameWithId("Arav Sharma", 1L);
+        System.out.println(rowsUpdated);
 
-        List<Object[]> bloodGroupList = patientRepository.countEachBloodGroupType();
-        for (Object[] objects : bloodGroupList) {
-            System.out.println(objects[0] + " " + objects[1]);
-        }
 
 
     }
