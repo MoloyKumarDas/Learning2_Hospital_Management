@@ -50,9 +50,11 @@ public class PatientTests {
 
         //List<Patient>patientList=patientRepository.findByBornAfterDate(LocalDate.of(1990,5,10));
 
-//        for(Patient patient:patientList) {
-//            System.out.println(patient);
-//        }
+        List<Patient>patientList=patientRepository.findAllPatients();
+
+        for(Patient patient:patientList) {
+            System.out.println(patient);
+        }
 
         List<Object[]> bloodGroupList = patientRepository.countEachBloodGroupType();
         for (Object[] objects : bloodGroupList) {
