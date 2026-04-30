@@ -24,4 +24,9 @@ public interface PatientRepository extends JpaRepository<Patient,Long> {
 
     @Query("select p from Patient p where p.birthDate>:birthDate")            // using param name instead of using ?1 // ?1 this shold be avoided // ?1 increase the chance of sql injection attack
     List<Patient> findByBornAfterDate(@Param("birthDate") LocalDate birthDate);
+
+    @Query("select p.bloodGroup,Count(p) from Patient p group by p.bloodGroup")
+    List<Object[]> countEachBloodGroupType();
+
+
 }
