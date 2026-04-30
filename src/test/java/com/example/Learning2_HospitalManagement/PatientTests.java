@@ -1,6 +1,7 @@
 package com.example.Learning2_HospitalManagement;
 
 import com.example.Learning2_HospitalManagement.entity.Patient;
+import com.example.Learning2_HospitalManagement.entity.type.BloodGroupType;
 import com.example.Learning2_HospitalManagement.repository.PatientRepository;
 import com.example.Learning2_HospitalManagement.service.PatientService;
 import jakarta.persistence.EntityNotFoundException;
@@ -43,7 +44,9 @@ public class PatientTests {
         //List<Patient>patientList=patientRepository.findByBirthDateBetween(LocalDate.of(1992,01,01),LocalDate.of(1995,12,30));
         //List<Patient>patientList=patientRepository.findByNameContaining("Di");
 
-        List<Patient>patientList=patientRepository.findByNameContainingOrderByIdDesc("Di");
+        //List<Patient>patientList=patientRepository.findByNameContainingOrderByIdDesc("Di");
+
+        List<Patient>patientList=patientRepository.findByBloodGroup(BloodGroupType.A_POSITIVE);
 
         for(Patient patient:patientList) {
             System.out.println(patient);
