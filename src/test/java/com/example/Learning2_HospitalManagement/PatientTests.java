@@ -46,7 +46,9 @@ public class PatientTests {
 
         //List<Patient>patientList=patientRepository.findByNameContainingOrderByIdDesc("Di");
 
-        List<Patient>patientList=patientRepository.findByBloodGroup(BloodGroupType.A_POSITIVE);
+        //List<Patient>patientList=patientRepository.findByBloodGroup(BloodGroupType.A_POSITIVE);
+
+        List<Patient>patientList=patientRepository.findByBornAfterDate(LocalDate.of(1990,5,10));
 
         for(Patient patient:patientList) {
             System.out.println(patient);
