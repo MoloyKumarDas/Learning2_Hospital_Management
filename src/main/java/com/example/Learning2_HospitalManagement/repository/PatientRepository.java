@@ -1,5 +1,6 @@
 package com.example.Learning2_HospitalManagement.repository;
 
+import com.example.Learning2_HospitalManagement.dto.BloodGroupCountResponseEntity;
 import com.example.Learning2_HospitalManagement.entity.Patient;
 import com.example.Learning2_HospitalManagement.entity.type.BloodGroupType;
 import jakarta.transaction.Transactional;
@@ -27,8 +28,9 @@ public interface PatientRepository extends JpaRepository<Patient,Long> {
     @Query("select p from Patient p where p.birthDate>:birthDate")            // using param name instead of using ?1 // ?1 this shold be avoided // ?1 increase the chance of sql injection attack
     List<Patient> findByBornAfterDate(@Param("birthDate") LocalDate birthDate);
 
-    @Query("select p.bloodGroup,Count(p) from Patient p group by p.bloodGroup")
-    List<Object[]> countEachBloodGroupType();
+    @Query("select new com.example.Learning2_HospitalManagement.dto.BloodGroupCountResponseEntity(p.bloodGroup,Count(p)) from Patient p group by p.bloodGroup")
+    //List<Object[]> countEachBloodGroupType();
+    List<BloodGroupCountResponseEntity>countEachBloodGroupType();
 
     @Query(value = "select * from patient", nativeQuery = true)
     List<Patient> findAllPatients();

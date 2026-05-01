@@ -1,5 +1,6 @@
 package com.example.Learning2_HospitalManagement;
 
+import com.example.Learning2_HospitalManagement.dto.BloodGroupCountResponseEntity;
 import com.example.Learning2_HospitalManagement.entity.Patient;
 import com.example.Learning2_HospitalManagement.entity.type.BloodGroupType;
 import com.example.Learning2_HospitalManagement.repository.PatientRepository;
@@ -60,9 +61,13 @@ public class PatientTests {
 //            System.out.println(objects[0] + " " + objects[1]);
 //        }
 
-        int rowsUpdated = patientRepository.updateNameWithId("Arav Sharma", 1L);
-        System.out.println(rowsUpdated);
+//        int rowsUpdated = patientRepository.updateNameWithId("Arav Sharma", 1L);
+//        System.out.println(rowsUpdated);
 
+        List<BloodGroupCountResponseEntity> bloodGroupList = patientRepository.countEachBloodGroupType();
+        for (BloodGroupCountResponseEntity bloodGroupCountResponse : bloodGroupList) {
+            System.out.println(bloodGroupCountResponse);
+        }
 
 
     }
