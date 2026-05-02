@@ -27,4 +27,9 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "patient_id",nullable = false)    // owned side //patient is required and not nullable
     private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)      // owned side
+    private Doctor doctor;
+
 }

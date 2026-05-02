@@ -57,4 +57,6 @@ public class Patient {
 
     @OneToMany(mappedBy = "patient")        // inverse side
     private List<Appointment> appointmentList;
+
+
 }
