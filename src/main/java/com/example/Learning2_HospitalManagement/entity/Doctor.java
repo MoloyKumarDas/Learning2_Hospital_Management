@@ -29,5 +29,6 @@ public class Doctor {
     private String email;
 
     @ManyToMany(mappedBy = "doctors")        // bidirrectional
+    @ToString.Exclude
     private Set<Department>departments=new HashSet<>();
 }

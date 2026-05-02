@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -56,9 +57,7 @@ public class Patient {
     @JoinColumn(name = "patient_insurance_id")     // owning side
     private Insurance insurance;
 
-    @OneToMany(mappedBy = "patient")        // inverse side
+    @OneToMany(mappedBy = "patient",cascade = {CascadeType.REMOVE},orphanRemoval = true)        // inverse side
     @ToString.Exclude
-    private List<Appointment> appointmentList=new ArrayList<>();
-
-
+    private List<Appointment> appointments=new ArrayList<>();
 }
