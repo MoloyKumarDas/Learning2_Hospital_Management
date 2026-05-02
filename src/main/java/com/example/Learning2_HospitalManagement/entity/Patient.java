@@ -45,8 +45,13 @@ public class Patient {
 
     @CreationTimestamp
     @Column(updatable = false)
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
     @Enumerated(EnumType.STRING)
     private BloodGroupType bloodGroup;
+
+    @OneToOne
+    @JoinColumn(name = "patient_insurance_id")            // optional // by this i can set the joined class name according to me
+    private Insurance insurance;
+
 }
