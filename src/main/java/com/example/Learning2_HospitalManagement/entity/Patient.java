@@ -51,7 +51,7 @@ public class Patient {
     private BloodGroupType bloodGroup;
 
     @OneToOne
-    @JoinColumn(name = "patient_insurance_id")            // optional // by this i can set the joined class name according to me
+    @JoinColumn(name = "patient_insurance_id")     // owning side
     private Insurance insurance;
 
 }
