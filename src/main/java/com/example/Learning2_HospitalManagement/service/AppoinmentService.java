@@ -34,4 +34,15 @@ public class AppoinmentService {
 
     }
 
+    @Transactional
+    public Appointment reAssignAppointmentToAnotherDoctor(Long appointmentId,Long doctorId){
+        Appointment appointment=appointmentRepository.findById(appointmentId).orElseThrow();
+        Doctor doctor=doctorRepository.findById(doctorId).orElseThrow();
+
+        appointment.setDoctor(doctor);            // dirty but don't need to call save manually  // update autometically // as this is under persistence state
+
+        return appointment;
+
+    }
+
 }

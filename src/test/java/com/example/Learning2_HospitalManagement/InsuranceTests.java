@@ -43,6 +43,11 @@ public class InsuranceTests {
         var newAppointment= appoinmentService.createNewAppointment(appointment,1L,2L);
 
         System.out.println(newAppointment);
+
+        var updateAppointment= appoinmentService.reAssignAppointmentToAnotherDoctor(newAppointment.getId(),3L);
+
+        System.out.println(updateAppointment);
+
     }
 
 }
