@@ -25,10 +25,12 @@ public class Appointment {
     private String reason;
 
     @ManyToOne
+    @ToString.Exclude
     @JoinColumn(name = "patient_id",nullable = false)    // owned side //patient is required and not nullable
     private Patient patient;
 
     @ManyToOne
+    @ToString.Exclude
     @JoinColumn(nullable = false)      // owned side
     private Doctor doctor;
 

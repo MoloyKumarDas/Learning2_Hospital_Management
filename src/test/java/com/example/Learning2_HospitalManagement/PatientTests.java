@@ -32,8 +32,10 @@ public class PatientTests {
         List<Patient>patientList=patientRepository.findAll();
         System.out.println(patientList);
 
-        Patient p1=new Patient();
-        patientRepository.save(p1);
+//        Patient p1=new Patient();
+//        patientRepository.save(p1);
+
+
     }
 
     @Test
